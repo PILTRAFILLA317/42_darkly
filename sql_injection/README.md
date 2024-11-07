@@ -8,7 +8,7 @@ Este comando devuelve una lista de todas las tablas en la base de datos actual a
 1 UNION SELECT table_name, NULL FROM information_schema.tables --
 ```
 
-- ```1```: Selección de la primera columna de la consulta (en este caso, el número 1 es utilizado para igualar el número de columnas en la consulta original).
+- ```1```: Selección de la primera columna de la consulta (en este caso, el número 1 es utilizado para igualar el número de columnas en la consulta original, se necesita que se devuelva el usuario 1 y la siguiente consulta con UNION).
 - ```UNION```: Operador SQL utilizado para combinar los resultados de múltiples consultas.
 - ```SELECT``` table_name, NULL: El atacante está seleccionando el nombre de las tablas (table_name) y un valor nulo en la segunda columna. El valor nulo es necesario para igualar el número de columnas con la consulta original.
 - ```FROM``` information_schema.tables: El information_schema es una base de datos especial en MariaDB que contiene información sobre las bases de datos, tablas, columnas, etc. tables es una vista que contiene los nombres de todas las tablas de la base de datos.
@@ -23,7 +23,7 @@ Este comando muestra la base de datos actual que se está utilizando.
 ```
 
 - ```database()```: Función MariaDB que devuelve el nombre de la base de datos actual.
-- ```NULL```: Se selecciona un valor nulo para igualar el número de columnas de la consulta original.
+- ```NULL```: Se selecciona un valor nulo para igualar el número de columnas de la consulta original, en este caso la informacion la va a dar en el apartado "First name" y el NULL es para el apartado "Surname".
 
 ### 3. Listar todas las bases de datos
 
