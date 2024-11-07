@@ -1,0 +1,4 @@
+1. Extraer el contenido de todos los README
+2. Ver cuantas frases hay y ver que y cuanto se repite, al final no había pasos
+    intermedios y te da la flag directamente y me podri a haber ahorrado el segundo
+    script buscando directamente "flag" con CTRL + F en el archivo, pero bueno
