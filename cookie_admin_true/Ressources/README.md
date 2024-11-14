@@ -1,9 +1,17 @@
-## COOKIE ADMIN TRUE
+# COOKIE ADMIN TRUE
 
-This one is also easy but not as easy as some others.
-Whenever you visit a page, data is stored about you, in order to access that data you need to inspect element and head over to the Applications window. Once there you need click on the cookies dropdown and select whatever is there.</br>
-//TODO explanation about cookies and which kind of cookie are we using.</br>
-<img src="./imgs/1.png">
-</br>
-Once you find the cookie you can see that it contains some values, the one we are fixing on is the "value" one. Inside it there is a random array of numbers and letters, usually when you find this that means that we are looking at some hashed data, so we have to convert it back to something we can actually read.</br>
-To achive this we first have to find which ones are the most used hashes and then use a converter. We first tried with a [MD5 converter](https://md5.gromweb.com/) and got it right, it displayed "false" so we wrote true and hashed it back with an [online hash webapp](https://www.md5hashgenerator.com/)
+
+## What is a cookie??
+
+<code>cookie :</code> cookies are small data packages created by a webserver and stored in the users device. They are usually used in order to store store <i>stateful</i> information about the user.</br></br>
+The easiest way of seeing this is with a shopping cart. You can go to amazon, without being logged in and add things to your shopping cart. If you were to leave the page and come back later your cart would still be containing the items you added.</br></br>
+
+## What about this page's cookies
+
+If you were to inspect this page's cookies you would see that there is only one named <code>I_am_admin</code> and its value is a random string.</br>
+<img src="./imgs/1.png"></br>
+When you see a random string like that the first thing that crosses your mind is that it has to be a encrypted string that contains something, so the next step should be decrypting the string.</br>
+The usual suspects tend to be MD5, SHA1, SHA256...</br>
+If we use an [MD5 converter](#https://md5.gromweb.com/) we can see that the value of the cookie is actually the string "false" encrypted. So if we[encrypt the string "true" with MD5](#https://10015.io/tools/md5-encrypt-decrypt) and refresh we should get the cookie.</br>
+<img src="./imgs/2.png"></br>
+<img src="./imgs/3.png"></br>

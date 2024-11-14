@@ -1,8 +1,7 @@
 ## HTTP HEADER REFERER
 
-Upon inspecting the footer's "© BornToSec" logo you can go to a secret webpage. The url="http://10.13.8.6:2222/index.php?page=b7e44c7a40c5f80139f0a50f3650fb2bd8d00b0d24667c4c2ca32c88e13b758f"
-<img src="./imgs/1.png"></br>
-</br>
+Upon inspecting the footer's "© BornToSec" logo you can go to a secret webpage. The <code>url="http://10.13.8.6:2222/index.php?page=b7e44c7a40c5f80139f0a50f3650fb2bd8d00b0d24667c4c2ca32c88e13b758f"</code></br>
+<img src="./imgs/1.png"></br></br>
 When you inspect the webpage there is are hidden comments. There is one that says:</br> "You must come from : https://www.nsa.gov/"
 <img src="./imgs/2.png"></br>
 When you see this the first thing you think of is that there has to be an http header that tells the server where you come from. [Referer Header](#https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Referer)</br>
