@@ -12,9 +12,11 @@
 - Deocument hidden_routes DONE
 - Document htpasswd DONE
 - Document http_header_referer DONE
-- Document login_brute_force
+- Document login_brute_force DONE
 - Document path_traversal DONE
-- Document recoverPassword_form_input
+- Document recoverPassword_form_input 
 - Document survery_form_select
 - Document upload_image_php DONE
 - Document xss_src_query
+
+1. Poner las imagenes en tamaños normales
