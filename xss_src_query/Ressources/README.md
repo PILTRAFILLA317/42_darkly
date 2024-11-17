@@ -1,12 +1,19 @@
-## TODO
+## XSS SRC QUERY
 
 Whenever you inspect the image of the nsa you can see that it has an anchor (\<a>) tag</br>
-<img src="./imgs/1.png"></br>
-Once we are in the route you can see that the image is searched via Query. This means that the search is part of the URI and if its not sanitized we could send some code.</br>
-<img src="./imgs/2.png"></br>
-If we wanna inject JavaScript code in the URI we need to send it in the src part of the request. You send this string: "data:text/html;base64,PHNjcmlwdD5hbGVydCgnVGhpcyBpcyBhbiBhZG1pbmlzdHJhdGlvbiBzY3JpcHQnKTwvc2NyaXB0Pg=="</br>
-The data part tells the browser thats the data part of the URI</br>
-The part of text/html tells the server that the data that's gonna be sent is html</br>
-The next part tells that the enconding is gonna be encoded in base64 and the last part is the code enconded in base64.</br>
-This code executes code in the back end. Exactly "<script>alert('This is an administration script')</script>"
-<img src="./imgs/3.png"></br>
+<img src="./imgs/1.png" width="500"></br></br>
+If we click on the anchor we get sent to the ?page=media page and we can see that the image is searched via Query.</br>
+<img src="./imgs/2.png"></br></br>
+Having the image being searched via Query is a security risk, if it isn't well sanitized malicious code could be sent there.</br>
+If we inspect element we can see that the image being loaded is loaded into a object html tag.</br>
+<img src="./imgs/3.png"></br></br>
+This is helpful, we can see where the <i>src</i> is being loaded, so we can prepare code for that.</br>
+To test this we could try sending some <code>js</code> code. The code has to be sent in the src parameter. We are gonna send this:</br>
+<code>"data:text/html;base64,PHNjcmlwdD5hbGVydCgnVGhpcyBpcyBhbiBhZG1pbmlzdHJhdGlvbiBzY3JpcHQnKTwvc2NyaXB0Pg=="</code></br>
+Which is:</br>
+<code>\<script>alert('This is an administration script')\</script></code></br>
+If we try to load that code in the <code>object</code> html tag we can see that it works.</br>
+<img src="./imgs/4.png"></br></br>
+So if we send that code in the src query part we will get the flag:
+<img src="./imgs/5.png"></br></br>
+

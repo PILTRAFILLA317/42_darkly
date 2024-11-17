@@ -1,16 +1,18 @@
 ## RECOVER PASSWORD FORM INPUT
 
-The first time you open this webpage the first thing you come upon is the signin page.
+This vulnerability is a really dumb one. It revolves around hard-coded html for a recovery password form, which is something I dont think has ever happened or if it has you could probably count how many times with your fingers.</br></br>
+
+## Where
+This happens in the Login page of the webpage
+
+<table>
+    <tr>
+        <td><img src="./imgs/1.png" width="500"></td>
+        <td><img src="./imgs/2.png" height="300"></td>
+    </tr>
+</table></br>
 </br>
-<img src="./imgs/1.png">
+If you click on the <i><code>I forgot my password</i></code> anchor you will go to another page. In this page you will just find a submit button.</br>
+<img src="./imgs/3.png"></br>
 </br>
-Once you click on signin you can signin, since we dont have an account we are gonna try the recovering password option.
-</br>
-<img src="./imgs/2.png">
-</br>
-There you are gonna find a submit button and nothing else.
-<img src="./imgs/3.png">
-</br>
-If you inspect the submit button you will find that it is actually a form that is submitting a fixed value. If you change that value you can try to recover other passwords.
-</br>
-<img src="./imgs/4.png">
+Based on this code I guess that upon submission the password recovery protocol will use the email found in the code to something that would lead to the password being discovered by someone that shouldn't be able to do so.

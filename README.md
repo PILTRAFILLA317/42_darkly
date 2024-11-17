@@ -14,9 +14,9 @@
 - Document http_header_referer DONE
 - Document login_brute_force DONE
 - Document path_traversal DONE
-- Document recoverPassword_form_input 
-- Document survery_form_select
+- Document recoverPassword_form_input DONE
+- Document survery_form_select  DONE
 - Document upload_image_php DONE
-- Document xss_src_query
+- Document xss_src_query DONE
 
 1. Poner las imagenes en tamaños normales
