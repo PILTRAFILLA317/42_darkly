@@ -1,4 +1,4 @@
-## FEEDBACK EMPTY FORM
+## XSS FEEDBACK
 
 At the bottom of the webpage there is a big button with a text that says "LEAVE A FEEDBACK".</br>
 <img src="./imgs/1.png"></br>
