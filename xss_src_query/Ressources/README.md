@@ -1,7 +1,7 @@
 ## XSS SRC QUERY
 
 Whenever you inspect the image of the nsa you can see that it has an anchor (\<a>) tag</br>
-<img src="./imgs/1.png" width="500"></br></br>
+<img src="./imgs/1.png" width="800"></br></br>
 If we click on the anchor we get sent to the ?page=media page and we can see that the image is searched via Query.</br>
 <img src="./imgs/2.png" width="500"></br></br>
 Having the image being searched via Query is a security risk, if it isn't well sanitized malicious code could be sent there.</br>
