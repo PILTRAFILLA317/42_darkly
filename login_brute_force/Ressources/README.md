@@ -16,5 +16,5 @@ So we can make a python script that has both most used usernames and passwords a
 Once we make the script a run it for some time we will eventually get the right combination/combinations.</br>
 <img src="./imgs/5.png" width="200" height="200"></br></br>
 So if we try any of those combinations we get the flag.</br>
-<img src="./imgs/6.png" ></br></br>
+<img src="./imgs/6.png" width="700"></br></br>
 

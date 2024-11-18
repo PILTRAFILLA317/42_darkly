@@ -3,7 +3,7 @@
 This vulnerability revolves around uploading a file that you are no supossed to be able to upload.
 </br>
 If you upload an image and inspect element, you can read the request you've sent</br>
-<img src="./images/1.png">
+<img src="./images/1.png" width=500>
 ```
 POST /index.php?page=upload HTTP/1.1
 Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7
@@ -78,5 +78,5 @@ Upload
 ```
 </br>
 Once this request is send you can see that the html is displaying a flag
-<img src="./images/2.png">
+<img src="./images/2.png" width=800>
 
